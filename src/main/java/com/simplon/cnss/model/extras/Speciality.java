@@ -1,0 +1,43 @@
+package com.simplon.cnss.model.extras;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+
+
+@Entity
+public class Speciality extends Refundable {
+    @Column
+    private Float repayment;
+
+    @Column
+    private Boolean medicationRefundable;
+
+    public Speciality() {
+    }
+
+    public Speciality(String name, Float repayment, Boolean medicationRefundable) {
+        super(name, repayment);
+        this.medicationRefundable = medicationRefundable;
+    }
+
+    public Speciality(long id, String name, Float repayment, Boolean medicationRefundable) {
+        super(id, name, repayment);
+        this.medicationRefundable = medicationRefundable;
+    }
+
+    public Boolean getMedicationRefundable() {
+        return medicationRefundable;
+    }
+
+    public void setMedicationRefundable(Boolean medicationRefundable) {
+        this.medicationRefundable = medicationRefundable;
+    }
+
+    public Float getRepayment() {
+        return repayment;
+    }
+
+    public void setRepayment(Float repayment) {
+        this.repayment = repayment;
+    }
+}

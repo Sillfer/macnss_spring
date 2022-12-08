@@ -32,7 +32,6 @@ public class PatientController {
                              @RequestParam("patient-number") Long patientNumber){
 
         Patient patient = patientService.createPatient(email,password,username,patientNumber);
-
         if (patient == null) {
             System.out.println("Something went wrong while adding patient!!!");
         }else {

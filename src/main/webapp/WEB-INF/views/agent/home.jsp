@@ -5,6 +5,6 @@
     <title>Home</title>
 </head>
 <body>
-<a href="<%=BaseUrl.BASE_URL%>patient/add">Hello</a>
+<a href="<%=BaseUrl.BASE_URL%>patient/add">Hello ${name}</a>
 </body>
 </html>

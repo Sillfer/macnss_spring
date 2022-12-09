@@ -95,172 +95,7 @@
                 <!-- Sidebar links -->
                 <nav aria-label="Main" class="flex-1 px-2 py-4 space-y-2 overflow-y-hidden hover:overflow-y-auto">
                     <!-- Dashboards links -->
-                    <div x-data="{ isActive: false, open: false}">
-                        <!-- active & hover classes 'bg-blue-100 dark:bg-blue-600' -->
-                        <a
-                                href="#"
-                                @click="$event.preventDefault(); open = !open"
-                                class="flex items-center p-2 text-gray-500 transition-colors rounded-md dark:text-light hover:bg-blue-100 dark:hover:bg-blue-600"
-                                :class="{'bg-blue-100 dark:bg-blue-600': isActive || open}"
-                                role="button"
-                                aria-haspopup="true"
-                                :aria-expanded="(open || isActive) ? 'true' : 'false'"
-                        >
-                  <span aria-hidden="true">
-                    <svg
-                            class="w-5 h-5"
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                    >
-                      <path
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              stroke-width="2"
-                              d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
-                    </svg>
-                  </span>
-                            <span class="ml-2 text-sm"> Dashboards </span>
-                            <span class="ml-auto" aria-hidden="true">
-                    <!-- active class 'rotate-180' -->
-                    <svg
-                            class="w-4 h-4 transition-transform transform"
-                            :class="{ 'rotate-180': open }"
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                    >
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
-                  </span>
-                        </a>
-                        <div role="menu" x-show="open" class="mt-2 space-y-2 px-7" aria-label="Dashboards">
-                            <!-- active & hover classes 'text-gray-700 dark:text-light' -->
-                            <!-- inActive classes 'text-gray-400 dark:text-gray-400' -->
-                            <a
-                                    href="#"
-                                    role="menuitem"
-                                    class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700"
-                            >
-                                Default
-                            </a>
-                            <a
-                                    href="#"
-                                    role="menuitem"
-                                    class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
-                            >
-                                Project Mangement
-                            </a>
-                            <a
-                                    href="#"
-                                    role="menuitem"
-                                    class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
-                            >
-                                E-Commerce
-                            </a>
-                        </div>
-                    </div>
-
                     <!-- Components links -->
-                    <div x-data="{ isActive: false, open: false }">
-                        <!-- active classes 'bg-blue-100 dark:bg-blue-600' -->
-                        <a
-                                href="#"
-                                @click="$event.preventDefault(); open = !open"
-                                class="flex items-center p-2 text-gray-500 transition-colors rounded-md dark:text-light hover:bg-blue-100 dark:hover:bg-blue-600"
-                                :class="{ 'bg-blue-100 dark:bg-blue-600': isActive || open }"
-                                role="button"
-                                aria-haspopup="true"
-                                :aria-expanded="(open || isActive) ? 'true' : 'false'"
-                        >
-                  <span aria-hidden="true">
-                    <svg
-                            class="w-5 h-5"
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                    >
-                      <path
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              stroke-width="2"
-                              d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
-                      />
-                    </svg>
-                  </span>
-                            <span class="ml-2 text-sm"> Components </span>
-                            <span aria-hidden="true" class="ml-auto">
-                    <!-- active class 'rotate-180' -->
-                    <svg
-                            class="w-4 h-4 transition-transform transform"
-                            :class="{ 'rotate-180': open }"
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                    >
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </span>
-                        </a>
-                        <div x-show="open" class="mt-2 space-y-2 px-7" role="menu" arial-label="Components">
-                            <!-- active & hover classes 'text-gray-700 dark:text-light' -->
-                            <!-- inActive classes 'text-gray-400 dark:text-gray-400' -->
-                            <a
-                                    href="#"
-                                    role="menuitem"
-                                    class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700"
-                            >
-                                Alerts
-                            </a>
-                            <a
-                                    href="#"
-                                    role="menuitem"
-                                    class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700"
-                            >
-                                Buttons
-                            </a>
-                            <a
-                                    href="#"
-                                    role="menuitem"
-                                    class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
-                            >
-                                Cards
-                            </a>
-                            <a
-                                    href="#"
-                                    role="menuitem"
-                                    class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
-                            >
-                                Dropdowns
-                            </a>
-                            <a
-                                    href="#"
-                                    role="menuitem"
-                                    class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
-                            >
-                                Forms
-                            </a>
-                            <a
-                                    href="#"
-                                    role="menuitem"
-                                    class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
-                            >
-                                Lists
-                            </a>
-                            <a
-                                    href="#"
-                                    role="menuitem"
-                                    class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
-                            >
-                                Modals
-                            </a>
-                        </div>
-                    </div>
-
                     <!-- Pages links -->
                     <div x-data="{ isActive: true, open: open }">
                         <!-- active classes 'bg-blue-100 dark:bg-blue-600' -->
@@ -281,15 +116,14 @@
                             viewBox="0 0 24 24"
                             stroke="currentColor"
                     >
-                      <path
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              stroke-width="2"
-                              d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"
-                      />
-                    </svg>
+                        <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                      </svg>
                   </span>
-                            <span class="ml-2 text-sm"> Pages </span>
+                            <span class="ml-2 text-sm"> Dashboard </span>
                             <span aria-hidden="true" class="ml-auto">
                     <!-- active class 'rotate-180' -->
                     <svg
@@ -300,7 +134,7 @@
                             viewBox="0 0 24 24"
                             stroke="currentColor"
                     >
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                     </svg>
                   </span>
                         </a>
@@ -312,35 +146,28 @@
                                     role="menuitem"
                                     class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:text-light dark:hover:text-light hover:text-gray-700"
                             >
-                                Blank
+                                Home Page
                             </a>
                             <a
-                                    href="#"
+                                    href="<%=BaseUrl.BASE_URL%>patient/add"
                                     role="menuitem"
                                     class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700"
                             >
-                                Profile
+                                Add Patient
                             </a>
                             <a
                                     href="#"
                                     role="menuitem"
                                     class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
                             >
-                                Pricing
+                                Add Agent
                             </a>
                             <a
                                     href="#"
                                     role="menuitem"
                                     class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
                             >
-                                Kanban
-                            </a>
-                            <a
-                                    href="#"
-                                    role="menuitem"
-                                    class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
-                            >
-                                Feed
+                                Statistics
                             </a>
                         </div>
                     </div>
@@ -369,8 +196,7 @@
                               stroke-linecap="round"
                               stroke-linejoin="round"
                               stroke-width="2"
-                              d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                      />
+                              d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
                     </svg>
                   </span>
                             <span class="ml-2 text-sm"> Authentication </span>
@@ -384,7 +210,7 @@
                             viewBox="0 0 24 24"
                             stroke="currentColor"
                     >
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                     </svg>
                   </span>
                         </a>
@@ -423,7 +249,7 @@
                             type="button"
                             class="flex items-center justify-center w-full px-4 py-2 text-sm text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-700 focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
                     >
-                        <span aria-hidden="true"">
+                        <span aria-hidden="true">
                         <svg
                                 class="w-4 h-4 mr-2"
                                 xmlns="http://www.w3.org/2000/svg"
@@ -435,8 +261,7 @@
                                     stroke-linecap="round"
                                     stroke-linejoin="round"
                                     stroke-width="2"
-                                    d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"
-                            />
+                                    d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
                         </svg>
                         </span>
                         <span>Customize</span>
@@ -463,7 +288,7 @@
                           viewBox="0 0 24 24"
                           stroke="currentColor"
                   >
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                   </svg>
                 </span>
                     </button>
@@ -473,7 +298,7 @@
                             href="#"
                             class="inline-block text-2xl font-bold tracking-wider text-blue-700 uppercase dark:text-light"
                     >
-                        K-WD
+                        MA-CNSS
                     </a>
 
                     <!-- Mobile sub menu button -->
@@ -494,8 +319,7 @@
                             stroke-linecap="round"
                             stroke-linejoin="round"
                             stroke-width="2"
-                            d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
-                    />
+                            d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"></path>
                   </svg>
                 </span>
                     </button>
@@ -523,8 +347,7 @@
                                             stroke-linecap="round"
                                             stroke-linejoin="round"
                                             stroke-width="2"
-                                            d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
-                                    />
+                                            d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
                                 </svg>
                                 <svg
                                         x-show="isDark"
@@ -538,8 +361,7 @@
                                             stroke-linecap="round"
                                             stroke-linejoin="round"
                                             stroke-width="2"
-                                            d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
-                                    />
+                                            d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path>
                                 </svg>
                             </div>
                         </button>
@@ -562,8 +384,7 @@
                                         stroke-linecap="round"
                                         stroke-linejoin="round"
                                         stroke-width="2"
-                                        d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
-                                />
+                                        d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
                             </svg>
                         </button>
 
@@ -585,8 +406,7 @@
                                         stroke-linecap="round"
                                         stroke-linejoin="round"
                                         stroke-width="2"
-                                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                                />
+                                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                             </svg>
                         </button>
 
@@ -608,14 +428,12 @@
                                         stroke-linecap="round"
                                         stroke-linejoin="round"
                                         stroke-width="2"
-                                        d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
-                                />
+                                        d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
                                 <path
                                         stroke-linecap="round"
                                         stroke-linejoin="round"
                                         stroke-width="2"
-                                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                                />
+                                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
                             </svg>
                         </button>
 
@@ -710,8 +528,7 @@
                                                 stroke-linecap="round"
                                                 stroke-linejoin="round"
                                                 stroke-width="2"
-                                                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
-                                        />
+                                                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
                                     </svg>
                                     <svg
                                             x-show="isDark"
@@ -725,8 +542,7 @@
                                                 stroke-linecap="round"
                                                 stroke-linejoin="round"
                                                 stroke-width="2"
-                                                d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
-                                        />
+                                                d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path>
                                     </svg>
                                 </div>
                             </button>
@@ -749,8 +565,7 @@
                                             stroke-linecap="round"
                                             stroke-linejoin="round"
                                             stroke-width="2"
-                                            d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
-                                    />
+                                            d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
                                 </svg>
                             </button>
 
@@ -772,8 +587,7 @@
                                             stroke-linecap="round"
                                             stroke-linejoin="round"
                                             stroke-width="2"
-                                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                                    />
+                                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                                 </svg>
                             </button>
 
@@ -794,14 +608,12 @@
                                             stroke-linecap="round"
                                             stroke-linejoin="round"
                                             stroke-width="2"
-                                            d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
-                                    />
+                                            d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
                                     <path
                                             stroke-linecap="round"
                                             stroke-linejoin="round"
                                             stroke-width="2"
-                                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                                    />
+                                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
                                 </svg>
                             </button>
                         </div>
@@ -866,174 +678,8 @@
                         @click.away="isMobileMainMenuOpen = false"
                 >
                     <nav aria-label="Main" class="px-2 py-4 space-y-2">
-                        <!-- Dashboards links -->
-                        <div x-data="{ isActive: false, open: false}">
-                            <!-- active & hover classes 'bg-blue-100 dark:bg-blue-600' -->
-                            <a
-                                    href="#"
-                                    @click="$event.preventDefault(); open = !open"
-                                    class="flex items-center p-2 text-gray-500 transition-colors rounded-md dark:text-light hover:bg-blue-100 dark:hover:bg-blue-600"
-                                    :class="{'bg-blue-100 dark:bg-blue-600': isActive || open}"
-                                    role="button"
-                                    aria-haspopup="true"
-                                    :aria-expanded="(open || isActive) ? 'true' : 'false'"
-                            >
-                    <span aria-hidden="true">
-                      <svg
-                              class="w-5 h-5"
-                              xmlns="http://www.w3.org/2000/svg"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              stroke="currentColor"
-                      >
-                        <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="2"
-                                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                        />
-                      </svg>
-                    </span>
-                                <span class="ml-2 text-sm"> Dashboards </span>
-                                <span class="ml-auto" aria-hidden="true">
-                      <!-- active class 'rotate-180' -->
-                      <svg
-                              class="w-4 h-4 transition-transform transform"
-                              :class="{ 'rotate-180': open }"
-                              xmlns="http://www.w3.org/2000/svg"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              stroke="currentColor"
-                      >
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                      </svg>
-                    </span>
-                            </a>
-                            <div role="menu" x-show="open" class="mt-2 space-y-2 px-7" aria-label="Dashboards">
-                                <!-- active & hover classes 'text-gray-700 dark:text-light' -->
-                                <!-- inActive classes 'text-gray-400 dark:text-gray-400' -->
-                                <a
-                                        href="#"
-                                        role="menuitem"
-                                        class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700"
-                                >
-                                    Default
-                                </a>
-                                <a
-                                        href="#"
-                                        role="menuitem"
-                                        class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
-                                >
-                                    Project Mangement
-                                </a>
-                                <a
-                                        href="#"
-                                        role="menuitem"
-                                        class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
-                                >
-                                    E-Commerce
-                                </a>
-                            </div>
-                        </div>
 
                         <!-- Components links -->
-                        <div x-data="{ isActive: false, open: false }">
-                            <!-- active classes 'bg-blue-100 dark:bg-blue-600' -->
-                            <a
-                                    href="#"
-                                    @click="$event.preventDefault(); open = !open"
-                                    class="flex items-center p-2 text-gray-500 transition-colors rounded-md dark:text-light hover:bg-blue-100 dark:hover:bg-blue-600"
-                                    :class="{ 'bg-blue-100 dark:bg-blue-600': isActive || open }"
-                                    role="button"
-                                    aria-haspopup="true"
-                                    :aria-expanded="(open || isActive) ? 'true' : 'false'"
-                            >
-                    <span aria-hidden="true">
-                      <svg
-                              class="w-5 h-5"
-                              xmlns="http://www.w3.org/2000/svg"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              stroke="currentColor"
-                      >
-                        <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="2"
-                                d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
-                        />
-                      </svg>
-                    </span>
-                                <span class="ml-2 text-sm"> Components </span>
-                                <span aria-hidden="true" class="ml-auto">
-                      <!-- active class 'rotate-180' -->
-                      <svg
-                              class="w-4 h-4 transition-transform transform"
-                              :class="{ 'rotate-180': open }"
-                              xmlns="http://www.w3.org/2000/svg"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              stroke="currentColor"
-                      >
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                      </svg>
-                    </span>
-                            </a>
-                            <div x-show="open" class="mt-2 space-y-2 px-7" role="menu" arial-label="Components">
-                                <!-- active & hover classes 'text-gray-700 dark:text-light' -->
-                                <!-- inActive classes 'text-gray-400 dark:text-gray-400' -->
-                                <a
-                                        href="#"
-                                        role="menuitem"
-                                        class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700"
-                                >
-                                    Alerts
-                                </a>
-                                <a
-                                        href="#"
-                                        role="menuitem"
-                                        class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700"
-                                >
-                                    Buttons
-                                </a>
-                                <a
-                                        href="#"
-                                        role="menuitem"
-                                        class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
-                                >
-                                    Cards
-                                </a>
-                                <a
-                                        href="#"
-                                        role="menuitem"
-                                        class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
-                                >
-                                    Dropdowns
-                                </a>
-                                <a
-                                        href="#"
-                                        role="menuitem"
-                                        class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
-                                >
-                                    Forms
-                                </a>
-                                <a
-                                        href="#"
-                                        role="menuitem"
-                                        class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
-                                >
-                                    Lists
-                                </a>
-                                <a
-                                        href="#"
-                                        role="menuitem"
-                                        class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
-                                >
-                                    Modals
-                                </a>
-                            </div>
-                        </div>
-
                         <!-- Pages links -->
                         <div x-data="{ isActive: true, open: true }">
                             <!-- active classes 'bg-blue-100 dark:bg-blue-600' -->
@@ -1058,11 +704,10 @@
                                 stroke-linecap="round"
                                 stroke-linejoin="round"
                                 stroke-width="2"
-                                d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"
-                        />
+                                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
                       </svg>
                     </span>
-                                <span class="ml-2 text-sm"> Pages </span>
+                                <span class="ml-2 text-sm"> Dashboard </span>
                                 <span aria-hidden="true" class="ml-auto">
                       <!-- active class 'rotate-180' -->
                       <svg
@@ -1073,7 +718,7 @@
                               viewBox="0 0 24 24"
                               stroke="currentColor"
                       >
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                       </svg>
                     </span>
                             </a>
@@ -1085,35 +730,28 @@
                                         role="menuitem"
                                         class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:text-light dark:hover:text-light hover:text-gray-700"
                                 >
-                                    Blank
+                                    Home Page
                                 </a>
                                 <a
-                                        href="#"
+                                        href="<%=BaseUrl.BASE_URL%>patient/add"
                                         role="menuitem"
                                         class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700"
                                 >
-                                    Profile
+                                    Add Patient
                                 </a>
                                 <a
                                         href="#"
                                         role="menuitem"
                                         class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
                                 >
-                                    Pricing
+                                    Add Agent
                                 </a>
                                 <a
                                         href="#"
                                         role="menuitem"
                                         class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
                                 >
-                                    Kanban
-                                </a>
-                                <a
-                                        href="#"
-                                        role="menuitem"
-                                        class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
-                                >
-                                    Feed
+                                    Statistics
                                 </a>
                             </div>
                         </div>
@@ -1142,8 +780,7 @@
                                 stroke-linecap="round"
                                 stroke-linejoin="round"
                                 stroke-width="2"
-                                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                        />
+                                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
                       </svg>
                     </span>
                                 <span class="ml-2 text-sm"> Authentication </span>
@@ -1419,38 +1056,6 @@
                         <template x-for="i in 20" x-key="i">
                             <a href="#" class="block">
                                 <div class="flex px-4 space-x-4">
-                                    <div class="relative flex-shrink-0">
-                        <span
-                                class="inline-block p-2 overflow-visible text-blue-500 rounded-full bg-blue-50 dark:bg-blue-800"
-                        >
-                          <svg
-                                  class="w-7 h-7"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  fill="none"
-                                  viewBox="0 0 24 24"
-                                  stroke="currentColor"
-                          >
-                            <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
-                            />
-                          </svg>
-                        </span>
-                                        <div
-                                                class="absolute h-24 p-px -mt-3 -ml-px bg-blue-50 left-1/2 dark:bg-blue-800"
-                                        ></div>
-                                    </div>
-                                    <div class="flex-1 overflow-hidden">
-                                        <h5 class="text-sm font-semibold text-gray-600 dark:text-light">
-                                            New project "KWD Dashboard" created
-                                        </h5>
-                                        <p class="text-sm font-normal text-gray-400 truncate dark:text-blue-400">
-                                            Looks like there might be a new theme soon
-                                        </p>
-                                        <span class="text-sm font-normal text-gray-400 dark:text-blue-500"> 9h ago </span>
-                                    </div>
                                 </div>
                             </a>
                         </template>
@@ -1498,7 +1103,7 @@
                             viewBox="0 0 24 24"
                             stroke="currentColor"
                     >
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                     </svg>
                 </button>
             </div>
@@ -1522,8 +1127,7 @@
                           stroke-linecap="round"
                           stroke-linejoin="round"
                           stroke-width="2"
-                          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                  />
+                          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                 </svg>
               </span>
                     <input
@@ -1563,27 +1167,11 @@
                     </a>
                     <a href="#" class="flex space-x-4">
                         <div class="flex-shrink-0">
-                            <img class="w-10 h-10 rounded-lg" src="https://avatars.githubusercontent.com/u/57622665?s=460&u=8f581f4c4acd4c18c33a87b3e6476112325e8b38&v=4" alt="K-WD Dashboard" />
-                        </div>
-                        <div class="flex-1 max-w-xs overflow-hidden">
-                            <h4 class="text-sm font-semibold text-gray-600 dark:text-light">K-WD Dashboard</h4>
-                            <p class="text-sm font-normal text-gray-400 truncate dark:text-blue-400">
-                                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                            </p>
-                            <span class="text-sm font-normal text-gray-400 dark:text-blue-500"> Updated 3h ago. </span>
                         </div>
                     </a>
                     <template x-for="i in 10" x-key="i">
                         <a href="#" class="flex space-x-4">
                             <div class="flex-shrink-0">
-                                <img class="w-10 h-10 rounded-lg" src="https://avatars.githubusercontent.com/u/57622665?s=460&u=8f581f4c4acd4c18c33a87b3e6476112325e8b38&v=4" alt="K-WD Dashboard" />
-                            </div>
-                            <div class="flex-1 max-w-xs overflow-hidden">
-                                <h4 class="text-sm font-semibold text-gray-600 dark:text-light">K-WD Dashboard</h4>
-                                <p class="text-sm font-normal text-gray-400 truncate dark:text-blue-400">
-                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                                </p>
-                                <span class="text-sm font-normal text-gray-400 dark:text-blue-500"> Updated 3h ago. </span>
                             </div>
                         </a>
                     </template>

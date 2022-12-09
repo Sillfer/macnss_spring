@@ -3,6 +3,7 @@
   <component name="WebContextManager">
     <option name="state">
       <map>
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/agent/home.jsp" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/agent" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/views/admin_form.jsp" value="file://$PROJECT_DIR$/src/main/webapp/views" />
       </map>
     </option>

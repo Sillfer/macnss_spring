@@ -14,4 +14,9 @@ public class HelloController {
         mv.addObject(name);
         return "home";
     }
+
+    @RequestMapping("/admin/dashboard")
+    public String home(){
+        return "agent/home";
+    }
 }

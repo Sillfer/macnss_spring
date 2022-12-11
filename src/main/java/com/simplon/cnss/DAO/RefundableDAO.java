@@ -10,10 +10,8 @@ import java.util.List;
 @Repository
 public class RefundableDAO {
 
-    public List<? extends Refundable> getAll(Class clazz) {
-        Query query = JPA.entityManager().createQuery("SELECT r FROM " + clazz.getSimpleName() + " r");
-
+    public static List<? extends  Refundable> getAll(Class clazz) {
+        Query query = JPA.entityManager().createQuery("SELECT r FROM "+clazz.getSimpleName()+" r");
         return query.getResultList();
-
     }
 }

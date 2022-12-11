@@ -5,6 +5,8 @@ import com.simplon.cnss.model.Person.Patient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class PatientService {
 
@@ -19,5 +21,9 @@ public class PatientService {
         Patient patient = new Patient(email, username, password, patientNumber);
         patientDAO.save(patient);
         return patient.getId() > 0 ? patient : null; // if id is greater than 0, then the patient is saved
+    }
+
+    public List<Patient> getAllPatients() {
+        return patientDAO.getAll();
     }
 }

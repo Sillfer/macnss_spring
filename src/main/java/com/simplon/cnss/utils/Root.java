@@ -27,13 +27,14 @@ public class Root implements Filter {
         HttpServletResponse httpResponse = (HttpServletResponse) response;
 
         HttpSession session = httpRequest.getSession();
-        System.out.println("session inside filter: "+session);
+        System.out.println("session inside filter: " + session);
 
         String requestedUrl = httpRequest.getRequestURL().toString();
-        String loginUrl = this.baseUrl+"users/login";
+        String loginUrl = this.baseUrl + "users/login";
+        String resourcesUrl = this.baseUrl + "resources";
 
-        if(session.getAttribute("person") == null && !loginUrl.equals(requestedUrl)){
-            httpResponse.sendRedirect(BaseUrl.BASE_URL+"users/login");
+        if (session.getAttribute("person") == null && !loginUrl.equals(requestedUrl) && !requestedUrl.startsWith(resourcesUrl)) {
+            httpResponse.sendRedirect(BaseUrl.BASE_URL + "users/login");
             return;
         }
 

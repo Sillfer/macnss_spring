@@ -8,8 +8,6 @@
 <body>
 <!-- component -->
 <style>
-    /* This example part of kwd-dashboard see https://kamona-wd.github.io/kwd-dashboard/ */
-    /* So here we will write some classes to simulate dark mode and some of tailwind css config in our project */
     :root {
         --light: #edf2f9;
         --dark: #152e4d;
@@ -139,8 +137,6 @@
                   </span>
                         </a>
                         <div x-show="open" class="mt-2 space-y-2 px-7" role="menu" arial-label="Pages">
-                            <!-- active & hover classes 'text-gray-700 dark:text-light' -->
-                            <!-- inActive classes 'text-gray-400 dark:text-gray-400' -->
                             <a
                                     href="#"
                                     role="menuitem"
@@ -156,11 +152,11 @@
                                 Add Patient
                             </a>
                             <a
-                                    href="#"
+                                    href="<%=BaseUrl.BASE_URL%>dossier/new"
                                     role="menuitem"
                                     class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
                             >
-                                Add Agent
+                                Add File
                             </a>
                             <a
                                     href="#"
@@ -744,7 +740,7 @@
                                         role="menuitem"
                                         class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
                                 >
-                                    Add Agent
+                                    Add File
                                 </a>
                                 <a
                                         href="#"

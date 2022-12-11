@@ -46,7 +46,6 @@ public class AuthController {
         if (person != null){
             session.setAttribute("person",person);
             session.setAttribute("role",role);
-            session.setAttribute("username",person.getUsername());
             return role+"/home";
         }
 

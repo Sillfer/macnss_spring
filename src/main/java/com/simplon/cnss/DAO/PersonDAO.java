@@ -7,11 +7,13 @@ import org.springframework.stereotype.Repository;
 
 import jakarta.persistence.Query;
 
+import java.util.List;
+
 @Repository
 public class PersonDAO {
 
     public void save(Person person) {
-        JPA.wrap(em -> em.persist(person));
+        JPA.wrap(entityManager -> entityManager.persist(person));
     }
 
     public Person selectByEMailAndPassword(String email, String password, Class clazz) {
@@ -32,5 +34,11 @@ public class PersonDAO {
         }
 
         return person;
+    }
+
+    public List<? extends Person> getAll(Class clazz) {
+        Query query = JPA.entityManager().createQuery("SELECT p FROM " + clazz.getSimpleName() + " p");
+
+        return query.getResultList();
     }
 }

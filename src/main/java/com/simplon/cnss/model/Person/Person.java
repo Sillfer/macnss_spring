@@ -9,7 +9,7 @@ import java.io.Serializable;
 public class Person {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @Column(name = "email", nullable = false)
@@ -37,7 +37,7 @@ public class Person {
         this.password = password;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 

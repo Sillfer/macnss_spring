@@ -1,14 +1,12 @@
 package com.simplon.cnss.controller;
 
 
+import com.google.gson.Gson;
 import com.simplon.cnss.model.Person.Patient;
 import com.simplon.cnss.service.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/patient")
@@ -32,6 +30,7 @@ public class PatientController {
                              @RequestParam("patient-number") Long patientNumber){
 
         Patient patient = patientService.createPatient(email,password,username,patientNumber);
+
         if (patient == null) {
             System.out.println("Something went wrong while adding patient!!!");
         }else {
@@ -39,5 +38,14 @@ public class PatientController {
         }
 
         return "redirect:add";
+    }
+
+    @ResponseBody
+    @GetMapping("/search-patient/{patient-number}")
+    public String searchPatient(@PathVariable("patient-number") Long patientNumber){
+        Patient patient = patientService.getPatientByNumber(patientNumber);
+        if(patient != null) patient.setDossiers(null);
+        Gson gson = new Gson();
+        return gson.toJson(patient);
     }
 }

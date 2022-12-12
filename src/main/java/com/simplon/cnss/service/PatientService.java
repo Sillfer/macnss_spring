@@ -10,20 +10,24 @@ import java.util.List;
 @Service
 public class PatientService {
 
-    private PatientDAO patientDAO;
+    private PatientDAO patientDao;
 
     @Autowired
-    public void setPatientDAO(PatientDAO patientDAO) {
-        this.patientDAO = patientDAO;
+    public void setPatientDao(PatientDAO patientDao) {
+        this.patientDao = patientDao;
     }
 
-    public Patient createPatient(String email, String username, String password, long patientNumber) {
-        Patient patient = new Patient(email, username, password, patientNumber);
-        patientDAO.save(patient);
-        return patient.getId() > 0 ? patient : null; // if id is greater than 0, then the patient is saved
+    public Patient getPatientByNumber(Long patientNumber){
+        return patientDao.selectPatientByNumber(patientNumber);
     }
 
-    public List<Patient> getAllPatients() {
-        return patientDAO.getAll();
+    public Patient createPatient(String email, String password, String username, Long patientNumber){
+        Patient patient = new Patient(email,username,password,patientNumber);
+        patientDao.save(patient);
+        return patient.getId() != null ? patient : null;
+    }
+
+    public List<Patient> getPatients(){
+        return patientDao.getAll();
     }
 }

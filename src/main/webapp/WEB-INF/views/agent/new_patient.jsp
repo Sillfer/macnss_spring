@@ -151,18 +151,18 @@
                                 Home Page
                             </a>
                             <a
-                                    href="#"
+                                    href="<%=BaseUrl.BASE_URL%>patient/add"
                                     role="menuitem"
                                     class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:text-light dark:hover:text-light hover:text-gray-700"
                             >
                                 Add Patient
                             </a>
                             <a
-                                    href="#"
+                                    href="<%=BaseUrl.BASE_URL%>dossier/add"
                                     role="menuitem"
                                     class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
                             >
-                                Add Agent
+                                Add File
                             </a>
                             <a
                                     href="#"
@@ -747,11 +747,11 @@
                                     Add Patient
                                 </a>
                                 <a
-                                        href="#"
+                                        href="<%=BaseUrl.BASE_URL%>dossier/add"
                                         role="menuitem"
                                         class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
                                 >
-                                    Add Agent
+                                    Add File
                                 </a>
                                 <a
                                         href="#"
@@ -834,30 +834,86 @@
                     </nav>
                 </div>
             </header>
+                <!-- component -->
+                <div class="flex items-center justify-center p-12">
+                    <!-- Author: FormBold Team -->
+                    <!-- Learn More: https://formbold.com -->
+                    <div class="mx-auto w-full max-w-[550px]">
+                        <form action="<%=BaseUrl.BASE_URL%>patient/add" method="POST">
+                            <div class="mb-5">
+                                <label
+                                        for="email"
+                                        class="mb-3 block text-base font-medium text-slate-600 dark:text-zinc-50"
+                                >
+                                    Email Address
+                                </label>
+                                <input
+                                        type="email"
+                                        name="email"
+                                        id="email"
+                                        placeholder="example@domain.com"
+                                        class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                                />
+                            </div>
+                            <div class="mb-5">
+                                <label
+                                        for="password"
+                                        class="mb-3 block text-base font-medium text-slate-600 dark:text-zinc-50"
+                                >
+                                    Password
+                                </label>
+                                <input
+                                        type="password"
+                                        name="password"
+                                        id="password"
+                                        placeholder="********"
+                                        class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                                />
+                            </div>
+                            <div class="mb-5">
+                                <label
+                                        for="username"
+                                        class="mb-3 block text-base font-medium text-slate-600 dark:text-zinc-50"
+                                >
+                                    Username
+                                </label>
+                                <input
+                                        type="text"
+                                        name="username"
+                                        id="username"
+                                        placeholder="Type your Username"
+                                        class="w-full resize-none rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                                />
 
-            <!-- Main content -->
-            <div class="flex items-center justify-center flex-1 h-full p-4">
-                <main class="space-y-4">
-                    <p class="text-base font-medium">
-                        Add a Patient
-                    </p>
-                    <form action="<%=BaseUrl.BASE_URL%>patient/add" method="POST">
-                        <input name="email" type="email" placeholder="Enter patient email">
-                        <input name="password" type="password" placeholder="Enter patient password">
-                        <input name="username" type="text" placeholder="Enter patient username">
-                        <input name="patient-number" type="number" placeholder="Enter patient number">
-                        <br><br>
-                        <button>Submit</button>
-                    </form>
-                </main>
-            </div>
+                            </div>
+                            <div class="mb-5">
+                                <label
+                                        for="patient-number"
+                                        class="mb-3 block text-base font-medium text-slate-600 dark:text-zinc-50"
+                                >
+                                    Patient Number
+                                </label>
+                                <input
+                                        type="text"
+                                        name="patient-number"
+                                        id="patient-number"
+                                        placeholder="Type your Patient Number"
+                                        class="w-full resize-none rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                                />
+
+                            </div>
+                            <div>
+                                <button
+                                        class="hover:shadow-form rounded-md bg-[#6A64F1] py-3 px-8 text-base font-semibold text-white outline-none"
+                                >
+                                    Submit
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
 
         </div>
-
-        <!-- Panels -->
-
-        <!-- Settings Panel -->
-        <!-- Backdrop -->
         <div
                 x-transition:enter="transition duration-300 ease-in-out"
                 x-transition:enter-start="opacity-0"

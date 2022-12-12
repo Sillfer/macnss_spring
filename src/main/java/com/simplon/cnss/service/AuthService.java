@@ -14,23 +14,22 @@ public class AuthService {
 
     private PatientDAO patientDAO;
 
-    public Person authenticate(String email, String password, String role) {
+    public Person authenticate(String email,String password,String role){
         Person person = null;
-        if(role.equals("agent")) {
-            person = agentDAO.selectByEMailAndPassword(email, password);
-        } else if(role.equals("patient")) {
-            person = patientDAO.selectByEMailAndPassword(email, password);
+        if(role.equals("agent")){
+            person = agentDAO.selectByEmailAndPassword(email,password);
+        } else if (role.equals("patient")) {
+            person = patientDAO.selectByEmailAndPassword(email,password);
         }
         return person;
     }
 
     @Autowired
-    public void setAgentDAO(AgentDAO agentDAO) { // setter injection
-        this.agentDAO = agentDAO;
+    public void setAgentDao(AgentDAO agentDao) {
+        this.agentDAO = agentDao;
     }
 
     @Autowired
-    public void setPatientDAO(PatientDAO patientDAO) {
-        this.patientDAO = patientDAO;
-    }
-}
+    public void setPatientDao(PatientDAO patientDao) {
+        this.patientDAO = patientDao;
+    }}

@@ -1,18 +1,18 @@
 package com.simplon.cnss.controller;
 
 
+import com.google.gson.Gson;
 import com.simplon.cnss.DAO.DossierDAO;
 import com.simplon.cnss.model.Dossier.Dossier;
 import com.simplon.cnss.model.extras.Medication;
 import com.simplon.cnss.service.DossierService;
+import com.simplon.cnss.service.MedicationService;
 import com.simplon.cnss.service.PatientService;
 import com.simplon.cnss.utils.JPA;
 import jakarta.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
@@ -25,41 +25,40 @@ public class DossierController {
     private DossierService dossierService;
     private PatientService patientService;
 
-    @GetMapping("/new")
-    public ModelAndView addDossierForm() {
+    private MedicationService medicationService;
+
+    @GetMapping("/add")
+    public ModelAndView dossierForm(){
+
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("refundables",dossierService.getRefundables());
-        modelAndView.addObject("patients",patientService.getAllPatients());
+        modelAndView.addObject("patients",patientService.getPatients());
         modelAndView.setViewName("agent/new_file");
 
         return modelAndView;
     }
 
     @PostMapping("/add")
-    public String addDossier() {
+    public String addDossier(@RequestParam(value = "speciality",defaultValue = "") List<Long> specialityIds,
+                             @RequestParam(value = "analysis",defaultValue = "") List<Long> analysisIds,
+                             @RequestParam(value = "radio",defaultValue = "") List<Long> radioIds,
+                             @RequestParam(value = "medication",defaultValue = "") List<Long> medicationIds,
+                             @RequestParam(value = "patient-id",defaultValue = "") Long patientId){
 
-        Medication medication = new Medication();
+        dossierService.createDossier(specialityIds,analysisIds,radioIds,medicationIds,patientId);
 
-        medication.setId(1);
-        EntityManager em = JPA.entityManager();
-        Medication medication1 = em.merge(medication);
+        return "redirect:add";
+    }
 
-        List<Medication> medications = new ArrayList<>();
-        medications.add(medication1);
+    @ResponseBody
+    @GetMapping("/search-medication/{barcode}")
+    public String searchMedication(@PathVariable("barcode") Long barcode){
+        Medication medication = medicationService.getMedicationByBarCode(barcode);
 
-        Dossier dossier = new Dossier();
-        dossier.setPatientId(2L);
-        dossier.setMedications(medications);
+        if(medication != null) medication.setDossiers(null);
 
-        DossierDAO dossierDAO = new DossierDAO();
-
-        JPA.wrap(entityManager -> {
-            em.persist(dossier);
-        });
-
-
-        return "redirect:new";
-
+        Gson gson = new Gson();
+        return gson.toJson(medication);
     }
 
     @Autowired
@@ -71,5 +70,12 @@ public class DossierController {
     public void setPatientService(PatientService patientService) {
         this.patientService = patientService;
     }
+
+    @Autowired
+
+    public void setMedicationService(MedicationService medicationService) {
+        this.medicationService = medicationService;
+    }
+
 
 }

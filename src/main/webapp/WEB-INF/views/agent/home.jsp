@@ -152,7 +152,7 @@
                                 Add Patient
                             </a>
                             <a
-                                    href="<%=BaseUrl.BASE_URL%>dossier/new"
+                                    href="<%=BaseUrl.BASE_URL%>dossier/add"
                                     role="menuitem"
                                     class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
                             >
@@ -722,7 +722,7 @@
                                 <!-- active & hover classes 'text-gray-700 dark:text-light' -->
                                 <!-- inActive classes 'text-gray-400 dark:text-gray-400' -->
                                 <a
-                                        href="#"
+                                        href="<%=BaseUrl.BASE_URL%>admin/dashboard"
                                         role="menuitem"
                                         class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:text-light dark:hover:text-light hover:text-gray-700"
                                 >
@@ -736,7 +736,7 @@
                                     Add Patient
                                 </a>
                                 <a
-                                        href="#"
+                                        href="<%=BaseUrl.BASE_URL%>dossier/add"
                                         role="menuitem"
                                         class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
                                 >

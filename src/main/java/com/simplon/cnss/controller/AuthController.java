@@ -36,12 +36,14 @@ public class AuthController {
     @PostMapping("/login")
     public String login(@RequestParam("email") String email,
                         @RequestParam("password") String password,
-                        @RequestParam("role") String role){
-        if(email == null || password == null || role == null) {
-            return "redirect:users/login";
-        }
+                        @RequestParam("role") String role)
+    {
 
-        Person person = authService.authenticate(email, password, role);
+        if(email == null || password == null || role == null) return "redirect:/users/login";
+
+        Person person = authService.authenticate(email,password,role);
+
+        System.out.println("session inside AuthController: "+session);
 
         if (person != null){
             session.setAttribute("person",person);
@@ -49,7 +51,6 @@ public class AuthController {
             return role+"/home";
         }
 
-        return "redirect:users/login";
-
+        return "redirect:/users/login";
     }
 }

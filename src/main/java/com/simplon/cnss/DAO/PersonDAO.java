@@ -12,33 +12,32 @@ import java.util.List;
 @Repository
 public class PersonDAO {
 
-    public void save(Person person) {
-        JPA.wrap(entityManager -> entityManager.persist(person));
+    public List<? extends Person> getAll(Class clazz) {
+        Query query = JPA.entityManager().createQuery("SELECT p FROM "+clazz.getSimpleName()+" p");
+        return query.getResultList();
     }
 
-    public Person selectByEMailAndPassword(String email, String password, Class clazz) {
-        Query query = JPA.entityManager().createQuery("SELECT p FROM " + clazz.getSimpleName() + " p WHERE p.email = :email");
+    public Person selectByEmailAndPassword(String email, String password, Class clazz){
+        Query query = JPA.entityManager().createQuery("SELECT p FROM "+clazz.getSimpleName()+" p WHERE p.email = :email");
 
-        query.setParameter("email", email);
+        query.setParameter("email",email);
 
         Person person = null;
 
-        try {
-            person = (Person) query.getSingleResult(); // throws NoResultException if no result found
-        } catch (NoResultException e) {
+        try{
+            person = (Person) query.getSingleResult();
+        }catch(NoResultException e){
             System.out.println("No record found!");
         }
 
-        if (person == null || !person.getPassword().equals(password)) { // if no record found or password is wrong
+        if (person == null || !person.getPassword().equals(password)) {
             return null;
         }
 
         return person;
     }
 
-    public List<? extends Person> getAll(Class clazz) {
-        Query query = JPA.entityManager().createQuery("SELECT p FROM " + clazz.getSimpleName() + " p");
-
-        return query.getResultList();
+    public void save(Person person){
+        JPA.wrap(entityManager -> entityManager.persist(person));
     }
 }

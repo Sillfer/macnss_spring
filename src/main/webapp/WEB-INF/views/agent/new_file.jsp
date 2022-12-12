@@ -1,7 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="com.simplon.cnss.Config.BaseUrl" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%--<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>--%>
 <html>
 <head>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -26,7 +26,9 @@
         --color-violet: #7c3aed;
     }
 
-    [x-cloak] { display: none; }
+    [x-cloak] {
+        display: none;
+    }
 
     .dark .dark\:text-light {
         color: var(--light);
@@ -140,7 +142,7 @@
                         </a>
                         <div x-show="open" class="mt-2 space-y-2 px-7" role="menu" arial-label="Pages">
                             <a
-                                    href="#"
+                                    href="<%=BaseUrl.BASE_URL%>admin/dashboard"
                                     role="menuitem"
                                     class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:text-light dark:hover:text-light hover:text-gray-700"
                             >
@@ -286,7 +288,8 @@
                           viewBox="0 0 24 24"
                           stroke="currentColor"
                   >
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M4 6h16M4 12h16M4 18h16"></path>
                   </svg>
                 </span>
                     </button>
@@ -445,7 +448,9 @@
                                     class="transition-opacity duration-200 rounded-full dark:opacity-75 dark:hover:opacity-100 focus:outline-none focus:ring dark:focus:opacity-100"
                             >
                                 <span class="sr-only">User menu</span>
-                                <img class="w-10 h-10 rounded-full" src="https://avatars.githubusercontent.com/u/57622665?s=460&u=8f581f4c4acd4c18c33a87b3e6476112325e8b38&v=4" alt="Ahmed Kamel" />
+                                <img class="w-10 h-10 rounded-full"
+                                     src="https://avatars.githubusercontent.com/u/57622665?s=460&u=8f581f4c4acd4c18c33a87b3e6476112325e8b38&v=4"
+                                     alt="Ahmed Kamel"/>
                             </button>
 
                             <!-- User dropdown menu -->
@@ -626,7 +631,9 @@
                                     class="block transition-opacity duration-200 rounded-full dark:opacity-75 dark:hover:opacity-100 focus:outline-none focus:ring dark:focus:opacity-100"
                             >
                                 <span class="sr-only">User menu</span>
-                                <img class="w-10 h-10 rounded-full" src="https://avatars.githubusercontent.com/u/57622665?s=460&u=8f581f4c4acd4c18c33a87b3e6476112325e8b38&v=4" alt="Ahmed Kamel" />
+                                <img class="w-10 h-10 rounded-full"
+                                     src="https://avatars.githubusercontent.com/u/57622665?s=460&u=8f581f4c4acd4c18c33a87b3e6476112325e8b38&v=4"
+                                     alt="Ahmed Kamel"/>
                             </button>
 
                             <!-- User dropdown menu -->
@@ -724,7 +731,7 @@
                                 <!-- active & hover classes 'text-gray-700 dark:text-light' -->
                                 <!-- inActive classes 'text-gray-400 dark:text-gray-400' -->
                                 <a
-                                        href="#"
+                                        href="<%=BaseUrl.BASE_URL%>admin/dashboard"
                                         role="menuitem"
                                         class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:text-light dark:hover:text-light hover:text-gray-700"
                                 >
@@ -738,7 +745,7 @@
                                     Add Patient
                                 </a>
                                 <a
-                                        href="#"
+                                        href="<%=BaseUrl.BASE_URL%>dossier/add"
                                         role="menuitem"
                                         class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
                                 >
@@ -792,7 +799,7 @@
                               viewBox="0 0 24 24"
                               stroke="currentColor"
                       >
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                       </svg>
                     </span>
                             </a>
@@ -825,56 +832,134 @@
                     </nav>
                 </div>
             </header>
+            <!-- component -->
+            <div class="mx-auto w-full max-w-[550px]">
+                <form action="<%=BaseUrl.BASE_URL%>dossier/add" method="POST">
+                    <div class="mb-5">
+                        <label
+                                class="mb-3 block text-base font-medium text-slate-600 dark:text-zinc-50"
+                        >
+                            Medication
+                        </label>
+                        <select name="medication"
+                                class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md">
+                            <c:forEach var='medication' items='${refundables.get("medications")}'>
+                                <option value="${medication.getId()}">${medication.getName()}</option>
+                            </c:forEach>
+                        </select>
+                    </div>
+                    <div class="mb-5">
+                        <label
+                                class="mb-3 block text-base font-medium text-slate-600 dark:text-zinc-50"
+                        >
+                            Analysis
+                        </label>
+                        <select name="analysis"
+                                class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md">
+                            <c:forEach var='analysis' items='${refundables.get("analyses")}'>
+                                <option value="${analysis.getId()}">${analysis.getName()}</option>
+                            </c:forEach>
+                        </select>
+                    </div>
+                    <div class="mb-5">
+                        <label
+                                class="mb-3 block text-base font-medium text-slate-600 dark:text-zinc-50"
+                        >
+                            Radio
+                        </label>
+                        <select name="radio"
+                                class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md">
+                            <c:forEach var='radio' items='${refundables.get("radios")}'>
+                                <option value="${radio.getId()}">${radio.getName()}</option>
+                            </c:forEach>
+                        </select>
+                    </div>
+
+                    <div class="mb-5">
+                        <label
+                                class="mb-3 block text-base font-medium text-slate-600 dark:text-zinc-50"
+                        >
+                            Speciality
+                        </label>
+                        <select name="speciality"
+                                class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md">
+                            <c:forEach var='speciality' items='${refundables.get("specialities")}'>
+                                <option value="${speciality.getId()}">${speciality.getName()}</option>
+                            </c:forEach>
+                        </select>
+                    </div>
+                    <div class="mb-5">
+                        <label
+                                class="mb-3 block text-base font-medium text-slate-600 dark:text-zinc-50"
+                        >
+                            Patient
+                        </label>
+                        <select name="patient-id"
+                                class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md">
+                            <c:forEach var='patient' items='${patients}'>
+                                <option value="${patient.getId()}">${patient.getUsername()}</option>
+                            </c:forEach>
+                        </select>
+                    </div>
+                    <div>
+                        <button
+                                class="hover:shadow-form rounded-md bg-[#6A64F1] py-3 px-8 text-base font-semibold text-white outline-none"
+                        >
+                            Submit
+                        </button>
+                    </div>
+                </form>
+            </div>
 
             <!-- Main content -->
-            <div class="flex items-center justify-center flex-1 h-full p-4">
-                <main class="space-y-4">
-                    <form action="<%=BaseUrl.BASE_URL%>dossier/add" method="POST">
-                        <div>
-                            <label>Medication</label>
-                            <select name="medication">
-                                <c:forEach var='medication' items='${refundables.get("medications")}'>
-                                    <option value="${medication.getId()}">${medication.getName()}</option>
-                                </c:forEach>
-                            </select>
-                        </div>
-                        <div>
-                            <label>Analysis</label>
-                            <select name="analysis">
-                                <c:forEach var='analysis' items='${refundables.get("analyses")}'>
-                                    <option value="${analysis.getId()}">${analysis.getName()}</option>
-                                </c:forEach>
-                            </select>
-                        </div>
-                        <div>
-                            <label>Radios</label>
-                            <select name="radio">
-                                <c:forEach var='radio' items='${refundables.get("radios")}'>
-                                    <option value="${radio.getId()}">${radio.getName()}</option>
-                                </c:forEach>
-                            </select>
-                        </div>
-                        <div>
-                            <label>Specialities</label>
-                            <select name="speciality">
-                                <c:forEach var='speciality' items='${refundables.get("specialities")}'>
-                                    <option value="${speciality.getId()}">${speciality.getName()}</option>
-                                </c:forEach>
-                            </select>
-                        </div>
-                        <div>
-                            <label>Patients list</label>
-                            <select name="patient">
-                                <c:forEach var='patient' items='${patients}'>
-                                    <option value="${patient.getId()}">${patient.getUsername()}</option>
-                                </c:forEach>
-                            </select>
-                        </div>
-                        <br><br>
-                        <button>Submit</button>
-                    </form>
-                </main>
-            </div>
+<%--            <div class="flex items-center justify-center flex-1 h-full p-4">--%>
+<%--                <main class="space-y-4">--%>
+<%--                    <form action="<%=BaseUrl.BASE_URL%>dossier/add" method="POST">--%>
+<%--                        <div>--%>
+<%--                            <label>Medication</label>--%>
+<%--                            <select name="medication">--%>
+<%--                                <c:forEach var='medication' items='${refundables.get("medications")}'>--%>
+<%--                                    <option value="${medication.getId()}">${medication.getName()}</option>--%>
+<%--                                </c:forEach>--%>
+<%--                            </select>--%>
+<%--                        </div>--%>
+<%--                        <div>--%>
+<%--                            <label>Analysis</label>--%>
+<%--                            <select name="analysis">--%>
+<%--                                <c:forEach var='analysis' items='${refundables.get("analyses")}'>--%>
+<%--                                    <option value="${analysis.getId()}">${analysis.getName()}</option>--%>
+<%--                                </c:forEach>--%>
+<%--                            </select>--%>
+<%--                        </div>--%>
+<%--                        <div>--%>
+<%--                            <label>Radios</label>--%>
+<%--                            <select name="radio">--%>
+<%--                                <c:forEach var='radio' items='${refundables.get("radios")}'>--%>
+<%--                                    <option value="${radio.getId()}">${radio.getName()}</option>--%>
+<%--                                </c:forEach>--%>
+<%--                            </select>--%>
+<%--                        </div>--%>
+<%--                        <div>--%>
+<%--                            <label>Specialities</label>--%>
+<%--                            <select name="speciality">--%>
+<%--                                <c:forEach var='speciality' items='${refundables.get("specialities")}'>--%>
+<%--                                    <option value="${speciality.getId()}">${speciality.getName()}</option>--%>
+<%--                                </c:forEach>--%>
+<%--                            </select>--%>
+<%--                        </div>--%>
+<%--                        <div>--%>
+<%--                            <label>Patients list</label>--%>
+<%--                            <select name="patient">--%>
+<%--                                <c:forEach var='patient' items='${patients}'>--%>
+<%--                                    <option value="${patient.getId()}">${patient.getUsername()}</option>--%>
+<%--                                </c:forEach>--%>
+<%--                            </select>--%>
+<%--                        </div>--%>
+<%--                        <br><br>--%>
+<%--                        <button>Submit</button>--%>
+<%--                    </form>--%>
+<%--                </main>--%>
+<%--            </div>--%>
 
         </div>
 
@@ -923,7 +1008,7 @@
                             viewBox="0 0 24 24"
                             stroke="currentColor"
                     >
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
                     </svg>
                 </button>
             </div>
@@ -1056,7 +1141,7 @@
                             viewBox="0 0 24 24"
                             stroke="currentColor"
                     >
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
                     </svg>
                 </button>
             </div>
@@ -1131,7 +1216,8 @@
         >
             <div class="absolute right-0 p-2 transform translate-x-full">
                 <!-- Close button -->
-                <button @click="isSearchPanelOpen = false" class="p-2 text-white rounded-md focus:outline-none focus:ring">
+                <button @click="isSearchPanelOpen = false"
+                        class="p-2 text-white rounded-md focus:outline-none focus:ring">
                     <svg
                             class="w-5 h-5"
                             xmlns="http://www.w3.org/2000/svg"
@@ -1139,7 +1225,8 @@
                             viewBox="0 0 24 24"
                             stroke="currentColor"
                     >
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M6 18L18 6M6 6l12 12"></path>
                     </svg>
                 </button>
             </div>
@@ -1179,7 +1266,9 @@
                     <h3 class="py-2 text-sm font-semibold text-gray-600 dark:text-light">History</h3>
                     <a href="#" class="flex space-x-4">
                         <div class="flex-shrink-0">
-                            <img class="w-10 h-10 rounded-lg" src="https://avatars.githubusercontent.com/u/57622665?s=460&u=8f581f4c4acd4c18c33a87b3e6476112325e8b38&v=4" alt="Post cover" />
+                            <img class="w-10 h-10 rounded-lg"
+                                 src="https://avatars.githubusercontent.com/u/57622665?s=460&u=8f581f4c4acd4c18c33a87b3e6476112325e8b38&v=4"
+                                 alt="Post cover"/>
                         </div>
                         <div class="flex-1 max-w-xs overflow-hidden">
                             <h4 class="text-sm font-semibold text-gray-600 dark:text-light">Header</h4>
@@ -1191,7 +1280,9 @@
                     </a>
                     <a href="#" class="flex space-x-4">
                         <div class="flex-shrink-0">
-                            <img class="w-10 h-10 rounded-lg" src="https://avatars.githubusercontent.com/u/57622665?s=460&u=8f581f4c4acd4c18c33a87b3e6476112325e8b38&v=4" alt="Ahmed Kamel" />
+                            <img class="w-10 h-10 rounded-lg"
+                                 src="https://avatars.githubusercontent.com/u/57622665?s=460&u=8f581f4c4acd4c18c33a87b3e6476112325e8b38&v=4"
+                                 alt="Ahmed Kamel"/>
                         </div>
                         <div class="flex-1 max-w-xs overflow-hidden">
                             <h4 class="text-sm font-semibold text-gray-600 dark:text-light">Ahmed Kamel</h4>

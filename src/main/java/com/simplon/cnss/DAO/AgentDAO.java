@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class AgentDAO extends PersonDAO {
 
-    public Agent selectByEMailAndPassword(String email, String password) {
-        return (Agent) super.selectByEMailAndPassword(email, password, Agent.class);
+    public Agent selectByEmailAndPassword(String email, String password){
+        return (Agent) super.selectByEmailAndPassword(email,password,Agent.class);
     }
 }

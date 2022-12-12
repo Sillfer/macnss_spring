@@ -19,7 +19,7 @@ services: # adds 2 services: mysql and phpmyadmin to connect with
     volumes:
       - my-db:/var/lib/mysql
     ports:
-      - '3306:3306'
+      - '3307:3306'
 
   phpmyadmin:
     container_name: phpmyadmin_cnss
